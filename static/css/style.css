@@ -1,0 +1,47 @@
+/* 基础样式 */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* 新闻卡片样式 */
+.news-card {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 新闻内容区域样式 */
+.news-content {
+    flex: 1;
+    overflow-y: auto;
+    /* 隐藏滚动条但保持滚动功能 */
+    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+/* 隐藏 Webkit 浏览器的滚动条 */
+.news-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* 新闻列表样式 */
+.news-content ul {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+/* 新闻项目样式 */
+.news-item {
+    transition: background-color 0.2s ease;
+    padding: 0.25rem 0.5rem;
+}
+
+.news-item:hover {
+    background-color: #f0f8ff;
+}
+
+/* 链接样式 */
+.news-item a {
+    text-decoration: none !important;
+    display: block;
+} 

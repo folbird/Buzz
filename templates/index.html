@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Aggregator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 异步加载字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body class="bg-gray-100 p-8 text-gray-800">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center">News Aggregator</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Hacker News -->
+            <div class="bg-white rounded shadow p-4 news-card">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-[#ff6600] text-white px-3 py-1 rounded text-sm font-semibold">Hacker News</div>
+                        <div class="text-sm text-blue-600 space-x-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <ul class="text-sm space-y-3 px-4">
+                        {% for article in hacker_news %}
+                        <li class="news-item px-2 py-1 rounded">
+                            <a href="{{ article.url }}" class="text-blue-600" target="_blank">[{{ loop.index }}] {{ article.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- The Economist -->
+            <div class="bg-white rounded shadow p-4 news-card">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-[#9B1C2C] text-white px-3 py-1 rounded text-sm font-semibold">The Economist</div>
+                        <div class="text-sm text-blue-600 space-x-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <ul class="text-sm space-y-3 px-4">
+                        {% for article in economist %}
+                        <li class="news-item px-2 py-1 rounded">
+                            <a href="{{ article.url }}" class="text-blue-600" target="_blank">[{{ loop.index }}] {{ article.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 知乎热榜 -->
+            <div class="bg-white rounded shadow p-4 news-card">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-[#0066FF] text-white px-3 py-1 rounded text-sm font-semibold">知乎热榜</div>
+                        <div class="text-sm text-blue-600 space-x-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <ul class="text-sm space-y-3 px-4">
+                        {% for article in zhihu %}
+                        <li class="news-item px-2 py-1 rounded">
+                            <a href="{{ article.url }}" class="text-blue-600" target="_blank">[{{ loop.index }}] {{ article.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- V2EX -->
+            <div class="bg-white rounded shadow p-4 news-card">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-[#2C2C2C] text-white px-3 py-1 rounded text-sm font-semibold">V2EX</div>
+                        <div class="text-sm text-blue-600 space-x-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <ul class="text-sm space-y-3 px-4">
+                        {% for article in v2ex %}
+                        <li class="news-item px-2 py-1 rounded">
+                            <a href="{{ article.url }}" class="text-blue-600" target="_blank">[{{ loop.index }}] {{ article.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- GitHub Trending -->
+            <div class="bg-white rounded shadow p-4 news-card">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-[#24292F] text-white px-3 py-1 rounded text-sm font-semibold">GitHub Trending</div>
+                        <div class="text-sm text-blue-600 space-x-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <ul class="text-sm space-y-3 px-4">
+                        {% for article in github %}
+                        <li class="news-item px-2 py-1 rounded">
+                            <a href="{{ article.url }}" class="text-blue-600" target="_blank">[{{ loop.index }}] {{ article.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 微博热搜 -->
+            <div class="bg-white rounded shadow p-4 news-card">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-[#E71F19] text-white px-3 py-1 rounded text-sm font-semibold">微博热搜</div>
+                        <div class="text-sm text-blue-600 space-x-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <ul class="text-sm space-y-3 px-4">
+                        {% for article in weibo %}
+                        <li class="news-item px-2 py-1 rounded">
+                            <a href="{{ article.url }}" class="text-blue-600" target="_blank">[{{ loop.index }}] {{ article.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
