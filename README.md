@@ -1,7 +1,7 @@
 # Buzz - 多源资讯聚合平台
 
 Buzz 是一个强大的资讯聚合平台，实时汇总多个热门网站的最新信息，让您轻松掌握全球科技、新闻和社交媒体动态。
-![Buzz预览图](https://meee.com.tw/3NFasKl)
+![Buzz预览图](https://i.meee.com.tw/3NFasKl.png)
 
 ## 功能特点
 
